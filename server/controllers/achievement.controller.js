@@ -1,8 +1,13 @@
 const { Achievement } = require("../models/achievement.model");
+const { User } = require("../models/user.model");
 
 module.exports.createAchievement = (req, res) => {
-  Achievement.create(req.body)
-    .then(achievement => res.json(achievement))
+  const achievement = new Achievement(req.body);
+  User.update({ _id: req.params.id }, { $push: { achievements: achievement } })
+    .then(achievement => {
+      console.log(achievement);
+      return res.json(achievement);
+    })
     .catch(err => res.json(err));
 };
 module.exports.showAllAchievements = (req, res) => {
