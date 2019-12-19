@@ -1,27 +1,19 @@
-import { Component } from "@angular/core";
-import { User } from "src/app/models/user.interface";
+import { Component, OnInit } from "@angular/core";
 import { Login } from "src/app/models/login.interface";
-import { ProjectService } from "src/app/services/project.service";
-import { ActivatedRoute, Router } from "@angular/router";
-import { Route } from "@angular/compiler/src/core";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.scss"]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   selectedUser: Login = { email: "", password: "" };
-  constructor(
-    private projectService: ProjectService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+  constructor(private authService: AuthService) {}
+  ngOnInit() {
+    this.selectedUser = { email: "", password: "" };
+  }
   loginUser() {
-    this.projectService.loginUser(this.selectedUser).subscribe(data => {
-      console.log(data);
-      this.selectedUser = { email: "", password: "" };
-      this.router.navigate(["/home"]);
-    });
+    this.authService.loginUser(this.selectedUser);
   }
 }

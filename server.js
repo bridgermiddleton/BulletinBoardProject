@@ -7,7 +7,8 @@ app.use(
   express.urlencoded({ extended: true }),
   express.static(__dirname + "/public/dist/public")
 );
-require("./server/config/routes")(app);
+require("./server/routes")(app);
+
 app.all("*", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/dist/public/index.html"))
 );

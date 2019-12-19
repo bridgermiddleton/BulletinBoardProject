@@ -1,6 +1,4 @@
 const { User } = require("../models/user.model");
-const bcrypt = require("bcrypt");
-
 module.exports.getAllUsers = (req, res) => {
   User.find()
     .then(allUsers => res.json(allUsers))
@@ -28,12 +26,12 @@ module.exports.createUser = (req, res) => {
 };
 module.exports.login = (req, res) => {
   User.findOne({ email: req.body.email }, function(err, user) {
-    if (err) throw err;
-    user.comparePassword(req.body);
+    if (err) return res.json(err);
+    user.comparePassword(req.body.password, function(err, isMatch) {
+      if (err) return res.json(err);
+      else {
+        return res.json(user);
+      }
+    });
   });
-  user
-    .comparePassword(req.body.password, function(err, isMatch) {
-      if (err) throw err;
-    })
-    .catch(err => res.json(err));
 };

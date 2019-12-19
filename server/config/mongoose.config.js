@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 mongoose
   .connect("mongodb://localhost/angularProject", {
     useFindAndModify: false,
-    useNewURLParser: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
     useUnifiedTopology: true
   })
   .then(() => console.log("successfully connected to mongodb"))

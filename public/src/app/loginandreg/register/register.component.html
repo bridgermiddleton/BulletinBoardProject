@@ -61,3 +61,7 @@
   </form>
   <a [routerLink]="['login']">Already registered? Login here!</a>
 </div>
+<ul *ngFor="let user of users">
+  <li>{{ user.first_name }}</li>
+  <button (click)="deleteUser(user._id)">Delete</button>
+</ul>

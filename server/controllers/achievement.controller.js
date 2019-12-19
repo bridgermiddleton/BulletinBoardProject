@@ -6,7 +6,7 @@ module.exports.createAchievement = (req, res) => {
 };
 module.exports.showAllAchievements = (req, res) => {
   Achievement.find()
-    .then((allAchievements = res.json(allAchievements)))
+    .then(allAchievements => res.json(allAchievements))
     .catch(err => res.json(err));
 };
 module.exports.showOneAchievement = (req, res) => {

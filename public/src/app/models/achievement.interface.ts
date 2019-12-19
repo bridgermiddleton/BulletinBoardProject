@@ -3,7 +3,8 @@ export interface Achievement {
   title: string;
   description: string;
   date: Date;
-  length_of_time: string;
+  unit_of_time: number | string;
+  length_of_time: number | string;
   image_url?: string;
   _id?: string;
   month: string;
