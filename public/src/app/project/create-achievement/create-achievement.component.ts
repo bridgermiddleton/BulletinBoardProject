@@ -18,9 +18,7 @@ export class CreateAchievementComponent implements OnInit {
     title: "",
     description: "",
     image_url: "",
-    date: new Date(Date.now()),
     unit_of_time: "days",
-    month: "",
     length_of_time: 0
   };
 
@@ -32,6 +30,7 @@ export class CreateAchievementComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log(this.user);
     this.user = this.authService.user;
   }
 
@@ -45,9 +44,7 @@ export class CreateAchievementComponent implements OnInit {
           title: "",
           description: "",
           image_url: "",
-          date: new Date(Date.now()),
           unit_of_time: "days",
-          month: "",
           length_of_time: 0
         };
         this.router.navigate(["/home"]);
