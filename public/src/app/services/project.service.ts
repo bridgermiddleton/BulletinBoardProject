@@ -49,4 +49,10 @@ export class ProjectService {
   deleteUser(id: string) {
     return this.http.delete<User>(`/api/users/delete/${id}`);
   }
+  updateAchievement(achievement: Achievement) {
+    return this.http.put<Achievement>(
+      `/api/achievements/update/${achievement._id}`,
+      achievement
+    );
+  }
 }

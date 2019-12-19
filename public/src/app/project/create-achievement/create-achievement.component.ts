@@ -30,7 +30,6 @@ export class CreateAchievementComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.user);
     this.user = this.authService.user;
     console.log(this.user);
   }
