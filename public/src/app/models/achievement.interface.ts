@@ -9,5 +9,4 @@ export interface Achievement {
   month: string;
   createdAt?: Date;
   updatedAt?: Date;
-  month: string;
 }
