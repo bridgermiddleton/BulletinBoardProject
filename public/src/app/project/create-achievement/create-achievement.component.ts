@@ -12,7 +12,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 export class CreateAchievementComponent implements OnInit {
   achievements: Achievement[] = [];
-  user: User;
+  user: User = this.authService.user;
   newAch: Achievement = {
     category: "",
     title: "",
@@ -31,12 +31,14 @@ export class CreateAchievementComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authService.user;
+    console.log(this.user);
   }
 
   createAchievement() {
     this.projectService
       .createAchievement(this.user._id, this.newAch)
       .subscribe(data => {
+        console.log(data);
         this.achievements.push(data);
         this.newAch = {
           category: "",

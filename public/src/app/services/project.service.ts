@@ -32,10 +32,7 @@ export class ProjectService {
     return this.http.get<Achievement>(`/api/achievements/${id}`);
   }
   createAchievement(id: string, achievement: Achievement) {
-    return this.http.post<Achievement>(
-      `/api/achievements/new/${id}`,
-      achievement
-    );
+    return this.http.post<Achievement>(`/api/achievements/new/${id}`, achievement);
   }
   deleteAchievement(id: string) {
     return this.http.delete<Achievement>(`/api/achievements/delete/${id}`);
