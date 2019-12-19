@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Achievement } from "src/app/models/achievement.interface";
 import { ProjectService } from "src/app/services/project.service";
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ActivatedRoute, Router, Params } from "@angular/router";
+import { User } from "src/app/models/user.interface";
 
 @Component({
   selector: "app-main-page",
@@ -10,11 +11,33 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 })
 export class MainPageComponent implements OnInit {
   achievements: Achievement[] = [];
+  users: User[] = [];
+  usersacheive;
+  months: string[] = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
 
-  constructor(private a: ProjectService, private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private a: ProjectService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    this.getAllAchievements();
+    this.a.getAllUsers().subscribe(data => {
+      this.users = data;
+    });
   }
 
   getAllAchievements() {

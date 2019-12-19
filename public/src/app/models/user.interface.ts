@@ -1,3 +1,5 @@
+import { Achievement } from "./achievement.interface";
+
 export interface User {
   first_name: string;
   last_name: string;
@@ -6,5 +8,6 @@ export interface User {
   dob: Date;
   createdAt?: Date;
   updatedAt?: Date;
+  achievements?: Achievement[];
   _id?: string;
 }
