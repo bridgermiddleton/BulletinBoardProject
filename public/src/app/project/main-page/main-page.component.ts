@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Achievement } from "src/app/models/achievement.interface";
 import { ProjectService } from "src/app/services/project.service";
+import { ActivatedRoute, Router, Params } from '@angular/router';
 
 @Component({
   selector: "app-main-page",
@@ -10,7 +11,7 @@ import { ProjectService } from "src/app/services/project.service";
 export class MainPageComponent implements OnInit {
   achievements: Achievement[] = [];
 
-  constructor(private a: ProjectService) {}
+  constructor(private a: ProjectService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.getAllAchievements();

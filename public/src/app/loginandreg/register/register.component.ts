@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { User } from "src/app/models/user.interface";
 import { ProjectService } from "src/app/services/project.service";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -9,7 +9,7 @@ import { AuthService } from "src/app/services/auth.service";
   templateUrl: "./register.component.html",
   styleUrls: ["./register.component.scss"]
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   newUser: User = {
     first_name: "",
     last_name: "",

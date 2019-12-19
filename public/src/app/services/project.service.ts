@@ -46,16 +46,10 @@ export class ProjectService {
   getOneUser(id: string) {
     return this.http.get<User>(`/api/users/${id}`);
   }
-  createUser(user: User) {
-    return this.http.post<User>("/api/users/new", user);
-  }
   updateUser(user: User) {
     return this.http.put<User>(`/api/users/update/${user._id}`, user);
   }
   deleteUser(id: string) {
-    return this.http.delete<User>(`/api/users/${id}`);
-  }
-  loginUser(user: Login) {
-    return this.http.post<User>("/api/users/login", user);
+    return this.http.delete<User>(`/api/users/delete/${id}`);
   }
 }

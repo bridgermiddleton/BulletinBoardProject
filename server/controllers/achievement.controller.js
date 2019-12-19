@@ -1,4 +1,5 @@
 const { Achievement } = require("../models/achievement.model");
+
 module.exports.createAchievement = (req, res) => {
   Achievement.create(req.body)
     .then(achievement => res.json(achievement))
