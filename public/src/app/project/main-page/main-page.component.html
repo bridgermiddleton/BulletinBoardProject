@@ -5,8 +5,8 @@
     <div class="card-header">
       January
     </div>
-    <div *ngFor="let user of users" class="card-group">
-      <div *ngFor="let achievement of user.achievements" class="card">
+    <div *ngFor="let user of users; let j = index" class="card-group">
+      <div *ngFor="let achievement of user.achievements; let i = index" class="card">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <a class="card-link text-start" href=""
@@ -14,18 +14,33 @@
             >
           </li>
         </ul>
-        <img [src]="achievement.image_url" class="card-img-top" alt="..." />
+        <img
+          [src]="achievement.image_url"
+          class="card-img-top"
+          style="height: 140px;"
+          alt="..."
+        />
         <div class="card-body">
           <h5 class="card-title">{{ achievement.title }}</h5>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">{{ achievement.category }}</li>
-          <li class="list-group-item">{{ achievement.createdAt }}</li>
+          <li class="list-group-item">{{ achievement.description }}</li>
+          <li class="list-group-item">{{ achievement.createdAt | timeago }}</li>
         </ul>
         <div class="card-body text-center">
-          <a href="#" class="card-link">Details</a>
-          <a href="#" class="card-link">Comment</a>
-          <a href="#" class="card-link">Like</a>
+          <button class="btn btn-link">
+            Like
+          </button>
+          <button class="btn btn-link">
+            Comment
+          </button>
+          <button
+            class="btn btn-link"
+            (click)="deleteAchievement(achievement._id, j, i)"
+          >
+            Delete
+          </button>
         </div>
 
         <div class="card-footer">

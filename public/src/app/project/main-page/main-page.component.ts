@@ -3,6 +3,8 @@ import { Achievement } from "src/app/models/achievement.interface";
 import { ProjectService } from "src/app/services/project.service";
 import { ActivatedRoute, Router, Params } from "@angular/router";
 import { User } from "src/app/models/user.interface";
+import { stringify } from "querystring";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
   selector: "app-main-page",
@@ -12,7 +14,6 @@ import { User } from "src/app/models/user.interface";
 export class MainPageComponent implements OnInit {
   achievements: Achievement[] = [];
   users: User[] = [];
-  usersacheive;
   months: string[] = [
     "January",
     "February",
@@ -31,7 +32,8 @@ export class MainPageComponent implements OnInit {
   constructor(
     private a: ProjectService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -44,5 +46,9 @@ export class MainPageComponent implements OnInit {
     this.a.getAllAchievements().subscribe(data => {
       this.achievements = data;
     });
+  }
+  deleteAchievement(id: string, userIndex: number, achIndex: number) {
+    this.users[userIndex].achievements.splice(achIndex, 1);
+    this.a.updateUser(this.users[userIndex]).subscribe();
   }
 }

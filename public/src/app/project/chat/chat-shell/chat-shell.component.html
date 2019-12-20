@@ -1,0 +1,17 @@
+<div class="row p-1 overflow-auto">
+  <div class="col-8">
+    <app-messages [messages]="$messages | async"></app-messages>
+  </div>
+
+  <div class="col-4">
+    <app-user-list [users]="$users | async"></app-user-list>
+  </div>
+  <div class="row justify-content-center text-center">
+    <input
+      type="text"
+      class="ml-5"
+      (keydown.enter)="sendMessage()"
+      [(ngModel)]="msg.message"
+    />
+  </div>
+</div>

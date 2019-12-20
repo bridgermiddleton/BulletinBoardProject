@@ -26,7 +26,11 @@ module.exports.updateAchievement = (req, res) => {
     .catch(err => res.json(err));
 };
 module.exports.deleteAchievement = (req, res) => {
-  Achievement.remove({ _id: req.params.id })
-    .then(achievement => res.json(achievement))
+  console.log(req.params);
+  Achievement.deleteOne({ _id: req.params.id })
+    .then(achievement => {
+      console.log(achievement);
+      res.json(achievement);
+    })
     .catch(err => res.json(err));
 };

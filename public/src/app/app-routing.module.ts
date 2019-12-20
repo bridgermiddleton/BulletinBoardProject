@@ -21,6 +21,11 @@ const routes: Routes = [
       { path: "new", component: CreateFamilyComponent }
     ]
   },
+  {
+    path: "chat",
+    loadChildren: () =>
+      import("../app/project/chat/chat.module").then(mod => mod.ChatModule)
+  },
   { path: "", pathMatch: "full", redirectTo: "login" }
 ];
 

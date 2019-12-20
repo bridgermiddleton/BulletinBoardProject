@@ -14,7 +14,12 @@ import { RegisterComponent } from "./loginandreg/register/register.component";
 import { LoginComponent } from "./loginandreg/login/login.component";
 import { CreateAchievementComponent } from "./project/create-achievement/create-achievement.component";
 import { AuthService } from "./services/auth.service";
-
+import { TimeagoModule } from "ngx-timeago";
+import { SocketService } from "./services/sockets/socket.service";
+import { MessagesComponent } from "./project/chat/messages/messages.component";
+import { UserListComponent } from "./project/chat/user-list/user-list.component";
+import { ChatShellComponent } from "./project/chat/chat-shell/chat-shell.component";
+import { ChatModule } from "./project/chat/chat.module";
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,8 +32,15 @@ import { AuthService } from "./services/auth.service";
     LoginComponent,
     CreateAchievementComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [ProjectService, AuthService],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ChatModule,
+    TimeagoModule.forRoot()
+  ],
+  providers: [ProjectService, AuthService, SocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
