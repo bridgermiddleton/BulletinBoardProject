@@ -1,4 +1,5 @@
 const express = require("express");
+const io = require("socket.io");
 const path = require("path");
 const app = express();
 require("./server/config/mongoose.config");
@@ -12,4 +13,12 @@ require("./server/routes")(app);
 app.all("*", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/dist/public/index.html"))
 );
-app.listen(8000, () => console.log("I'm all set up!"));
+
+const server = app.listen(8000, () => console.log("I'm all set up!"));
+const socketIO = io(server);
+socketIO.on("connection", socket => {
+  console.log("Sockets are fired up bro");
+  socket.on("iamconnected", () => {
+    console.log("Confirmed connected");
+  });
+});

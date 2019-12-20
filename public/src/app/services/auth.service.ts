@@ -14,17 +14,18 @@ export class AuthService {
   loginUser(user: Login) {
     return this.http.post<User>("/api/users/login", user).subscribe(data => {
       this.processUser(data);
+      this.router.navigate(["/home"]);
     });
   }
   createUser(user: User) {
     return this.http.post<User>("/api/users/new", user).subscribe(data => {
       this.processUser(data);
+      this.router.navigate(["/families/join"]);
     });
   }
   processUser(user: User) {
     console.log(user);
     this.user = user;
     this.isLoggedIn = true;
-    this.router.navigate(["/home"]);
   }
 }

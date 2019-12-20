@@ -17,8 +17,11 @@ module.exports.showAllAchievements = (req, res) => {
 };
 module.exports.showOneAchievement = (req, res) => {
   Achievement.findOne({ _id: req.params.id })
-    .catch(achievement => res.json(achievement))
-    .then(err => res.json(err));
+    .then(achievement => {
+      console.log(achievement);
+      res.json(achievement);
+    })
+    .catch(err => res.json(err));
 };
 module.exports.updateAchievement = (req, res) => {
   Achievement.update({ _id: req.params.id }, req.body)

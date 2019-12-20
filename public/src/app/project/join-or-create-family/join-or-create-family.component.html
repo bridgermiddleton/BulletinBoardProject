@@ -3,14 +3,17 @@
     <div class="col text-center">
       <h1 class="text-center">Join a Family</h1>
       <ul class="list-group" *ngFor="let family of families">
-        <button class="list-group-item list-group-item-action">
+        <button
+          (click)="joinFamily(family._id)"
+          class="list-group-item list-group-item-action"
+        >
           {{ family.name }}
         </button>
       </ul>
     </div>
     <div class="col text-center">
       <h1 class="text-center">Create a family</h1>
-      <a [routerLink]="['/families/new']">Click there!</a>
+      <a [routerLink]="['/families/new']">Click here!</a>
     </div>
   </div>
 </div>

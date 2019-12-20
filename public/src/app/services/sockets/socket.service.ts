@@ -1,9 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
+import * as io from "socket.io-client";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class SocketService {
-
-  constructor() { }
+  socket: SocketIOClient.Socket;
+  constructor() {
+    this.socket = io();
+    this.socket.emit("iamconnected");
+  }
 }

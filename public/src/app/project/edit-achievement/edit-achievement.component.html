@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col sm-3">
+      <form class="form-group mt-6">
+        Category:
+        <input
+          class="form-control my-2"
+          placeholder="Fitness"
+          type="text"
+          name="category"
+          [(ngModel)]="selectedAchievement.category"
+          minlength="4"
+          required
+          #category="ngModel"
+        />
+        Title:
+        <input
+          class="form-control my-2"
+          placeholder="First marathon!"
+          type="text"
+          name="title"
+          [(ngModel)]="selectedAchievement.title"
+          required
+          #title="ngModel"
+        />
+
+        Description:
+        <input
+          class="form-control my-2"
+          type="text"
+          name="description"
+          [(ngModel)]="selectedAchievement.description"
+          required
+          #description="ngModel"
+        />
+
+        Unit of Time:
+        <input
+          class="form-control my-2"
+          type=""
+          name="unit_of_time"
+          [(ngModel)]="selectedAchievement.unit_of_time"
+          required
+          #unit_of_time="ngModel"
+        />
+
+        Time to Complete:
+        <input
+          class="form-control my-2"
+          placeholder="including preparation - 6 months etc"
+          type="number"
+          name="length_of_time"
+          [(ngModel)]="selectedAchievement.length_of_time"
+          required
+          #length_of_time="ngModel"
+        />
+
+        Image (optional):
+        <input
+          class="form-control my-2"
+          placeholder="https://website/image.png"
+          type="text"
+          name="image_url"
+          [(ngModel)]="selectedAchievement.image_url"
+          required
+          #image_url="ngModel"
+        />
+
+        <button class="btn btn-dark mt-3" (click)="editAchievement()">
+          Submit Achievement
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

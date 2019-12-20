@@ -1,0 +1,23 @@
+<div *ngIf="selectedAchievement" class="card" style="width: 18rem;">
+  <img [src]="selectedAchievement.image_url" class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">{{ selectedAchievement.title }}</h5>
+    <p class="card-text">
+      {{ selectedAchievement.description }}
+    </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Category: {{ selectedAchievement.category }}</li>
+    <li class="list-group-item">
+      Length of Time: {{ selectedAchievement.length_of_time }}
+      {{ selectedAchievement.unit_of_time }}
+    </li>
+    <li class="list-group-item">Created At:{{ selectedAchievement.createdAt }}</li>
+  </ul>
+  <div class="card-body">
+    <a [routerLink]="['/myprofile']" class="card-link">Back to profile</a>
+    <a [routerLink]="['/editachievement', selectedAchievement._id]" class="card-link"
+      >Edit Achievement</a
+    >
+  </div>
+</div>

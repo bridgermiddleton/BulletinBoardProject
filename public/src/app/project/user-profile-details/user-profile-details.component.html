@@ -1,0 +1,14 @@
+<div class="container">
+  <div *ngIf="user">
+    <h1>Hello, {{ user.first_name }}! Below are all of your achievements.</h1>
+    <ul *ngFor="let achievement of user.achievements" class="list-group">
+      <a
+        style="width: 30%;"
+        [routerLink]="['/achievementdetails', achievement._id]"
+        class="list-group-item list-group-item-action"
+        >{{ achievement.title }}</a
+      >
+    </ul>
+  </div>
+  <a [routerLink]="['/edit']">Click here to edit profile</a>
+</div>
