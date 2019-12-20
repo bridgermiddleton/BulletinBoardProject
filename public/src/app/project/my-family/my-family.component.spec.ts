@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainFamilyBoardComponent } from './main-family-board.component';
+import { MyFamilyComponent } from './my-family.component';
 
-describe('MainFamilyBoardComponent', () => {
-  let component: MainFamilyBoardComponent;
-  let fixture: ComponentFixture<MainFamilyBoardComponent>;
+describe('MyFamilyComponent', () => {
+  let component: MyFamilyComponent;
+  let fixture: ComponentFixture<MyFamilyComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainFamilyBoardComponent ]
+      declarations: [ MyFamilyComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainFamilyBoardComponent);
+    fixture = TestBed.createComponent(MyFamilyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

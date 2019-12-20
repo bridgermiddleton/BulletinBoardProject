@@ -3,6 +3,7 @@ import { ProjectService } from "src/app/services/project.service";
 import { AuthService } from "src/app/services/auth.service";
 import { User } from "src/app/models/user.interface";
 import { ActivatedRoute, Router } from "@angular/router";
+import { Family } from "src/app/models/family.interface";
 
 @Component({
   selector: "app-edit-profile",
@@ -11,6 +12,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class EditProfileComponent implements OnInit {
   user: User;
+  family: Family;
   constructor(
     private projectService: ProjectService,
     private authService: AuthService,
@@ -20,6 +22,7 @@ export class EditProfileComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authService.user;
+    this.family = this.authService.family;
   }
   editUser() {
     this.projectService.updateUser(this.user).subscribe(data => {

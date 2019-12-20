@@ -26,3 +26,15 @@ module.exports.updateFamily = (req, res) => {
     .then(user => res.json(user))
     .catch(err => res.json(err));
 };
+module.exports.addFamilyMember = (req, res) => {
+  User.findOne({ _id: req.params.userid })
+    .then(user => {
+      Family.update({ _id: req.params.familyid }, { $push: { users: user } })
+        .then(data => {
+          console.log(data);
+          return res.json(data);
+        })
+        .catch(err => res.json(err));
+    })
+    .catch(err => res.json(err));
+};

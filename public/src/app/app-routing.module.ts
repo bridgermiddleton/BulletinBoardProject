@@ -11,11 +11,15 @@ import { EditProfileComponent } from "./project/edit-profile/edit-profile.compon
 import { UserProfileDetailsComponent } from "./project/user-profile-details/user-profile-details.component";
 import { AchievementDetailsComponent } from "./project/achievement-details/achievement-details.component";
 import { EditAchievementComponent } from "./project/edit-achievement/edit-achievement.component";
+import { FamilyMemberDetailsComponent } from "./project/family-member-details/family-member-details.component";
+import { MyFamilyComponent } from "./project/my-family/my-family.component";
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
   { path: "home", component: MainPageComponent },
   { path: "editachievement/:id", component: EditAchievementComponent },
+  { path: "myfamily", component: MyFamilyComponent },
+  { path: "familymemberdetails/:id", component: FamilyMemberDetailsComponent },
   { path: "register", component: RegisterComponent },
   { path: "create", component: CreateAchievementComponent },
   { path: "edit", component: EditProfileComponent },

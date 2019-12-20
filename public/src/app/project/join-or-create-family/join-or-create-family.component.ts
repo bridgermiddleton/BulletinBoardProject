@@ -32,9 +32,13 @@ export class JoinOrCreateFamilyComponent implements OnInit {
   joinFamily(id: string) {
     this.projectService.getOneFamily(id).subscribe(data => {
       this.selectedFamily = data;
-      this.selectedFamily.users.push(this.user);
-      console.log(this.selectedFamily);
-      this.router.navigate(["/home"]);
+      this.projectService
+        .addNewMember(this.user, this.selectedFamily._id)
+        .subscribe(data => {
+          console.log(this.selectedFamily);
+          this.authService.family = this.selectedFamily;
+          this.router.navigate(["/home"]);
+        });
     });
   }
 }

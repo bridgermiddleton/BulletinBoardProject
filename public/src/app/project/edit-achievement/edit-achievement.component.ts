@@ -4,6 +4,7 @@ import { Achievement } from "src/app/models/achievement.interface";
 import { AuthService } from "src/app/services/auth.service";
 import { ActivatedRoute, Router, Params } from "@angular/router";
 import { User } from "src/app/models/user.interface";
+import { Family } from "src/app/models/family.interface";
 
 @Component({
   selector: "app-edit-achievement",
@@ -13,6 +14,7 @@ import { User } from "src/app/models/user.interface";
 export class EditAchievementComponent implements OnInit {
   selectedAchievement: Achievement;
   user: User;
+  family: Family;
   constructor(
     private projectService: ProjectService,
     private authService: AuthService,
@@ -22,6 +24,7 @@ export class EditAchievementComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authService.user;
+    this.family = this.authService.family;
     this.getOneAchievement();
   }
   getOneAchievement() {
