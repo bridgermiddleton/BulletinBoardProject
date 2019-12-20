@@ -7,12 +7,24 @@ import { MainPageComponent } from "./project/main-page/main-page.component";
 import { RegisterComponent } from "./loginandreg/register/register.component";
 import { LoginComponent } from "./loginandreg/login/login.component";
 import { CreateAchievementComponent } from "./project/create-achievement/create-achievement.component";
+import { EditProfileComponent } from "./project/edit-profile/edit-profile.component";
+import { UserProfileDetailsComponent } from "./project/user-profile-details/user-profile-details.component";
+import { AchievementDetailsComponent } from "./project/achievement-details/achievement-details.component";
+import { EditAchievementComponent } from "./project/edit-achievement/edit-achievement.component";
+import { FamilyMemberDetailsComponent } from "./project/family-member-details/family-member-details.component";
+import { MyFamilyComponent } from "./project/my-family/my-family.component";
 
 const routes: Routes = [
+  { path: "", component: LoginComponent },
   { path: "home", component: MainPageComponent },
+  { path: "editachievement/:id", component: EditAchievementComponent },
+  { path: "myfamily", component: MyFamilyComponent },
+  { path: "familymemberdetails/:id", component: FamilyMemberDetailsComponent },
   { path: "register", component: RegisterComponent },
-  { path: "login", component: LoginComponent },
   { path: "create", component: CreateAchievementComponent },
+  { path: "edit", component: EditProfileComponent },
+  { path: "myprofile", component: UserProfileDetailsComponent },
+  { path: "achievementdetails/:id", component: AchievementDetailsComponent },
   {
     path: "families",
     component: RootfamilyComponent,

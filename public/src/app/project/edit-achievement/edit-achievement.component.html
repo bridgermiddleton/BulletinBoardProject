@@ -45,7 +45,7 @@
           placeholder="Fitness"
           type="text"
           name="category"
-          [(ngModel)]="newAch.category"
+          [(ngModel)]="selectedAchievement.category"
           minlength="4"
           required
           #category="ngModel"
@@ -56,7 +56,7 @@
           placeholder="First marathon!"
           type="text"
           name="title"
-          [(ngModel)]="newAch.title"
+          [(ngModel)]="selectedAchievement.title"
           required
           #title="ngModel"
         />
@@ -66,7 +66,7 @@
           class="form-control my-2"
           type="text"
           name="description"
-          [(ngModel)]="newAch.description"
+          [(ngModel)]="selectedAchievement.description"
           required
           #description="ngModel"
         />
@@ -76,7 +76,7 @@
           class="form-control my-2"
           type=""
           name="unit_of_time"
-          [(ngModel)]="newAch.unit_of_time"
+          [(ngModel)]="selectedAchievement.unit_of_time"
           required
           #unit_of_time="ngModel"
         />
@@ -87,7 +87,7 @@
           placeholder="including preparation - 6 months etc"
           type="number"
           name="length_of_time"
-          [(ngModel)]="newAch.length_of_time"
+          [(ngModel)]="selectedAchievement.length_of_time"
           required
           #length_of_time="ngModel"
         />
@@ -98,12 +98,12 @@
           placeholder="https://website/image.png"
           type="text"
           name="image_url"
-          [(ngModel)]="newAch.image_url"
+          [(ngModel)]="selectedAchievement.image_url"
           required
           #image_url="ngModel"
         />
 
-        <button class="btn btn-dark mt-3" (click)="createAchievement()">
+        <button class="btn btn-dark mt-3" (click)="editAchievement()">
           Submit Achievement
         </button>
       </form>

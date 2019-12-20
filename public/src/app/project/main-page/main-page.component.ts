@@ -3,7 +3,7 @@ import { Achievement } from "src/app/models/achievement.interface";
 import { ProjectService } from "src/app/services/project.service";
 import { ActivatedRoute, Router, Params } from "@angular/router";
 import { User } from "src/app/models/user.interface";
-import { stringify } from "querystring";
+import { Family } from "src/app/models/family.interface";
 import { AuthService } from "src/app/services/auth.service";
 
 @Component({
@@ -14,6 +14,7 @@ import { AuthService } from "src/app/services/auth.service";
 export class MainPageComponent implements OnInit {
   achievements: Achievement[] = [];
   users: User[] = [];
+  family: Family;
   months: string[] = [
     "January",
     "February",
@@ -39,6 +40,7 @@ export class MainPageComponent implements OnInit {
   ngOnInit() {
     this.a.getAllUsers().subscribe(data => {
       this.users = data;
+      this.family = this.authService.family;
     });
   }
 

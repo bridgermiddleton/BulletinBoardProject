@@ -19,8 +19,8 @@
           >Home <span class="sr-only">(current)</span></a
         >
       </li>
-      <li *ngIf="selectedFamily" class="nav-item active">
-        <a class="nav-link" href="#"
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/myfamily']"
           >My Family <span class="sr-only">(current)</span></a
         >
       </li>
@@ -36,21 +36,16 @@
   </div>
 </nav>
 <div class="container">
-  <div class="row">
-    <div class="col text-center">
-      <h1 class="text-center">Join a Family</h1>
-      <ul class="list-group" *ngFor="let family of families">
-        <button
-          (click)="joinFamily(family._id)"
-          class="list-group-item list-group-item-action"
-        >
-          {{ family.name }}
-        </button>
-      </ul>
-    </div>
-    <div class="col text-center">
-      <h1 class="text-center">Create a family</h1>
-      <a [routerLink]="['/families/new']">Click here!</a>
-    </div>
+  <div *ngIf="user">
+    <h1>Hello, {{ user.first_name }}! Below are all of your achievements.</h1>
+    <ul *ngFor="let achievement of user.achievements" class="list-group">
+      <a
+        style="width: 30%;"
+        [routerLink]="['/achievementdetails', achievement._id]"
+        class="list-group-item list-group-item-action"
+        >{{ achievement.title }}</a
+      >
+    </ul>
   </div>
+  <a [routerLink]="['/edit']">Click here to edit profile</a>
 </div>

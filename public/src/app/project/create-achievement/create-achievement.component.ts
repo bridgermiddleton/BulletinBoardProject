@@ -4,6 +4,7 @@ import { User } from "src/app/models/user.interface";
 import { ProjectService } from "src/app/services/project.service";
 import { AuthService } from "src/app/services/auth.service";
 import { Router, ActivatedRoute } from "@angular/router";
+import { Family } from "src/app/models/family.interface";
 
 @Component({
   selector: "app-create-achievement",
@@ -12,7 +13,8 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 export class CreateAchievementComponent implements OnInit {
   achievements: Achievement[] = [];
-  user: User;
+  user: User = this.authService.user;
+  family: Family;
   newAch: Achievement = {
     category: "",
     title: "",
@@ -31,6 +33,7 @@ export class CreateAchievementComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authService.user;
+    this.family = this.authService.family;
     console.log(this.user);
   }
 

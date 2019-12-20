@@ -19,8 +19,8 @@
           >Home <span class="sr-only">(current)</span></a
         >
       </li>
-      <li *ngIf="selectedFamily" class="nav-item active">
-        <a class="nav-link" href="#"
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/myfamily']"
           >My Family <span class="sr-only">(current)</span></a
         >
       </li>
@@ -36,21 +36,15 @@
   </div>
 </nav>
 <div class="container">
-  <div class="row">
-    <div class="col text-center">
-      <h1 class="text-center">Join a Family</h1>
-      <ul class="list-group" *ngFor="let family of families">
-        <button
-          (click)="joinFamily(family._id)"
-          class="list-group-item list-group-item-action"
-        >
-          {{ family.name }}
-        </button>
-      </ul>
-    </div>
-    <div class="col text-center">
-      <h1 class="text-center">Create a family</h1>
-      <a [routerLink]="['/families/new']">Click here!</a>
-    </div>
+  <h1 *ngIf="selectedFamily" class="text-center">
+    Welcome to the {{ selectedFamily.name }}, {{ user.first_name }}!
+  </h1>
+  <h3>Here are all of the family members:</h3>
+  <div *ngIf="selectedFamily">
+    <ul *ngFor="let member of selectedFamily.users">
+      <a [routerLink]="['/familymemberdetails', member._id]"
+        >{{ member.first_name }} {{ member.last_name }}</a
+      >
+    </ul>
   </div>
 </div>

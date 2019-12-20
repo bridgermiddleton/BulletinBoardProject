@@ -5,4 +5,8 @@ module.exports.FamilyRoutes = app => {
   app.post("/api/families/new", FamilyController.createFamily);
   app.put("/api/families/update/:id", FamilyController.updateFamily);
   app.delete("/api/families/delete/:id", FamilyController.deleteFamily);
+  app.put(
+    "/api/families/newmember/:userid/:familyid",
+    FamilyController.addFamilyMember
+  );
 };

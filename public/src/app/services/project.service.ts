@@ -22,6 +22,9 @@ export class ProjectService {
   updateFamily(family: Family) {
     return this.http.put<Family>(`/api/families/update/${family._id}`, family);
   }
+  addNewMember(user: User, familyid: string) {
+    return this.http.put(`/api/families/newmember/${user._id}/${familyid}`, user);
+  }
   deleteFamily(id: string) {
     return this.http.delete<Family>(`/api/families/delete/${id}`);
   }
